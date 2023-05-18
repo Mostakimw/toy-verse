@@ -12,5 +12,11 @@ module.exports = {
   rules: {
     "react-refresh/only-export-components": "warn",
     "no-unused-vars": "off",
+    "react/prop-types": [
+      "error",
+      {
+        ignore: ["toy"], // Add this line to ignore the 'subCategory' prop
+      },
+    ],
   },
 };
