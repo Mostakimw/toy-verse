@@ -1,9 +1,10 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { FaGoogle } from "react-icons/fa";
 
 const Login = () => {
-  const { loginUser, user } = useContext(AuthContext);
+  const { loginUser, user, googleSignIn } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -19,6 +20,10 @@ const Login = () => {
       .catch((err) => {
         setError("Email Or Password Does not Match");
       });
+  };
+
+  const googleLogin = () => {
+    googleSignIn();
   };
 
   return (
@@ -85,6 +90,11 @@ const Login = () => {
                   Register
                 </Link>
               </p>
+            </div>
+            <div className="flex justify-center mt-5">
+              <button onClick={googleLogin} className="w-2/3 btn btn-outline">
+                <FaGoogle className="text-[#CF4B5A] mr-2" /> Sign in with Google
+              </button>
             </div>
           </div>
           <div className="w-1/2">
