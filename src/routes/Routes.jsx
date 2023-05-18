@@ -3,6 +3,8 @@ import Main from "../Layout/Main";
 import Homepage from "../pages/Home/Homepage/Homepage";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
+import AddToy from "../pages/AddToy/AddToy";
+import MyToys from "../pages/MyToys/MyToys";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +22,14 @@ const router = createBrowserRouter([
       {
         path: "register",
         element: <Register />,
+      },
+      {
+        path: "add-toy",
+        element: <AddToy />,
+      },
+      {
+        path: "my-toys",
+        element: <MyToys />,
       },
     ],
   },

@@ -66,12 +66,25 @@ const Navbar = () => {
                 >
                   All Toys
                 </Link>
+                <Link
+                  to="/add-toy"
+                  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  Add Toy
+                </Link>
+                <Link
+                  to="/my-toys"
+                  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  My Toys
+                </Link>
               </div>
             </div>
           </div>
           <div className="hidden sm:flex items-center">
             <div className="text-gray-300">
               <div className="flex items-center gap-3">
+                {/* user profile icon when login  */}
                 {user && (
                   <div>
                     <img
@@ -82,6 +95,7 @@ const Navbar = () => {
                     />
                   </div>
                 )}
+                {/* showing user name as link and when click the link then signout button appear  */}
                 {user ? (
                   <div className="dropdown dropdown-end">
                     <label
@@ -96,8 +110,9 @@ const Navbar = () => {
                       className="menu dropdown-content p-2 shadow bg-base-100 rounded-box text-gray-800 w-52 mt-4"
                     >
                       <li>
-                        <a>My Toys</a>
+                        <a>Add Toys</a>
                       </li>
+                      <hr />
                       <li>
                         <button onClick={signoutUser}>
                           Sign Out <FaSignOutAlt />
@@ -106,10 +121,7 @@ const Navbar = () => {
                     </ul>
                   </div>
                 ) : (
-                  <Link
-                    to="/login"
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                  >
+                  <Link to="/login" className="my-btn">
                     Login
                   </Link>
                 )}

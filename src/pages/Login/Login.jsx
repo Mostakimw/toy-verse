@@ -66,7 +66,8 @@ const Login = () => {
               </label>
               <div className="flex items-center justify-center">
                 <button
-                  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                  className="px-8 py-8 my-btn"
+                  style={{ padding: "16px 28px 16px 28px" }}
                   type="submit"
                 >
                   Login
