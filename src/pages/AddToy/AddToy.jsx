@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const AddToy = () => {
+  const { user } = useContext(AuthContext);
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -80,6 +82,7 @@ const AddToy = () => {
               type="text"
               placeholder="Seller Name"
               className="input input-bordered w-full"
+              value={user.displayName}
             />
           </label>
         </div>
@@ -93,6 +96,7 @@ const AddToy = () => {
               type="text"
               placeholder="Seller Email"
               className="input input-bordered w-full"
+              value={user.email}
             />
           </label>
         </div>

@@ -100,7 +100,7 @@ const Navbar = () => {
                   <div className="dropdown dropdown-end">
                     <label
                       tabIndex={0}
-                      className="text-white border border-gray-300 px-3 py-2 hover:cursor-pointer hover:border-2 rounded-full transition-all duration-300"
+                      className="text-gray-800 bg-gray-100 border border-[#CF4B5A] px-3 py-2 hover:cursor-pointer hover:border-2 rounded-full transition-all duration-300"
                     >
                       {user.displayName}{" "}
                       <FaArrowCircleDown className="inline-block" />
