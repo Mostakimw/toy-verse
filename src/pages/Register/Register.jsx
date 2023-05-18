@@ -1,17 +1,45 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
+  const { registerUser } = useContext(AuthContext);
+  const [user, setUser] = useState(false);
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
-  const [photoUrl, setPhotoUrl] = useState("");
   const [password, setPassword] = useState("");
+  const [photoUrl, setPhotoUrl] = useState("");
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
 
-  const handleLogin = (e) => {
+  // ! registration handler
+  const handleRegister = (e) => {
     e.preventDefault();
-    // Handle login logic here
+
+    registerUser(email, password)
+      .then((result) => {
+        const loggedUser = result.user;
+        setUser(loggedUser);
+        setSuccess("Registration Successful");
+        updateUserProfile(result.user, name, photoUrl);
+      })
+      .catch((error) => {
+        setError("Something went wrong");
+      });
   };
 
+  // ! update profile information
+  const updateUserProfile = (user, name, photoUrl) => {
+    updateProfile(user, {
+      displayName: name,
+      photoURL: photoUrl,
+    })
+      .then(() => {})
+      .catch((err) => {
+        setError(err);
+      });
+  };
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="max-w-7xl mx-auto">
@@ -20,7 +48,14 @@ const Register = () => {
             <h2 className="text-3xl font-semibold text-center text-gray-800 mb-6">
               Register Now
             </h2>
-            <form onSubmit={handleLogin}>
+            <form onSubmit={handleRegister}>
+              <div className="pt-5">
+                {user ? (
+                  <p className="text-success mb-2">{success}</p>
+                ) : (
+                  <p className="text-error mb-2">{error}</p>
+                )}
+              </div>
               <div className="mb-4">
                 <label className="block text-gray-700 text-sm font-bold mb-2">
                   Name
