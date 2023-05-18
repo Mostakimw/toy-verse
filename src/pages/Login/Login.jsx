@@ -1,13 +1,24 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Login = () => {
+  const { loginUser, user } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
 
   const handleLogin = (e) => {
     e.preventDefault();
-    // Handle login logic here
+    loginUser(email, password)
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+      })
+      .catch((err) => {
+        setError("Email Or Password Does not Match");
+      });
   };
 
   return (
@@ -19,6 +30,9 @@ const Login = () => {
               Please Login
             </h2>
             <form onSubmit={handleLogin}>
+              <div className="pt-5">
+                {user && <p className="text-error mb-2">{error}</p>}
+              </div>
               <div className="mb-4">
                 <label className="block text-gray-700 text-sm font-bold mb-2">
                   Email
