@@ -1,5 +1,5 @@
 import PhotoGallery from "../../PhotoGallery/PhotoGallery";
-import Banner from "../Banner";
+import Banner from "../Banner/Banner";
 
 const Homepage = () => {
   return (
