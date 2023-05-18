@@ -1,12 +1,24 @@
-import { useState } from "react";
-import { FaHamburger, FaRegWindowClose } from "react-icons/fa";
+import { useContext, useState } from "react";
+import {
+  FaArrowCircleDown,
+  FaHamburger,
+  FaRegWindowClose,
+  FaSignOutAlt,
+} from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Navbar = () => {
+  const { user, logoutUser } = useContext(AuthContext);
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
+  };
+
+  // ! logout user handler
+  const signoutUser = () => {
+    logoutUser();
   };
 
   return (
@@ -54,27 +66,55 @@ const Navbar = () => {
                 >
                   All Toys
                 </Link>
-                <Link
-                  to="/login"
-                  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  Login
-                </Link>
               </div>
             </div>
           </div>
           <div className="hidden sm:flex items-center">
-            <Link
-              href="#"
-              className="text-gray-300 hover:text-white ml-4"
-              aria-label="Profile"
-            >
-              <img
-                src="https://png.pngtree.com/png-vector/20190419/ourmid/pngtree-vector-business-man-icon-png-image_956384.jpg"
-                className="w-10"
-                alt=""
-              />
-            </Link>
+            <div className="text-gray-300">
+              <div className="flex items-center gap-3">
+                {user && (
+                  <div>
+                    <img
+                      src={user.photoURL}
+                      alt="user profile pic"
+                      className="w-10 h-10 rounded-full link"
+                      title={user.displayName}
+                    />
+                  </div>
+                )}
+                {user ? (
+                  <div className="dropdown dropdown-end">
+                    <label
+                      tabIndex={0}
+                      className="text-white border border-gray-300 px-3 py-2 hover:cursor-pointer hover:border-2 rounded-full transition-all duration-300"
+                    >
+                      {user.displayName}{" "}
+                      <FaArrowCircleDown className="inline-block" />
+                    </label>
+                    <ul
+                      tabIndex={0}
+                      className="menu dropdown-content p-2 shadow bg-base-100 rounded-box text-gray-800 w-52 mt-4"
+                    >
+                      <li>
+                        <a>My Toys</a>
+                      </li>
+                      <li>
+                        <button onClick={signoutUser}>
+                          Sign Out <FaSignOutAlt />
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+                ) : (
+                  <Link
+                    to="/login"
+                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                  >
+                    Login
+                  </Link>
+                )}
+              </div>
+            </div>
           </div>
         </div>
       </div>
