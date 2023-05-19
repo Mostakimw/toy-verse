@@ -1,6 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const ToyCard = () => {
+const ToyCard = ({ toy }) => {
   return (
     <div className="max-w-xs mx-auto bg-white border shadow-lg rounded-lg mt-12">
       <img
@@ -15,9 +16,11 @@ const ToyCard = () => {
           <p className="text-gray-600">$500</p>
           <p className="text-gray-600 ml-1 justify-end">rating</p>
         </div>
-        <button className="mt-4 bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded">
-          View Details
-        </button>
+        <Link to={`/toys/${toy._id}`}>
+          <button className="mt-4 bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded">
+            View Details
+          </button>
+        </Link>
       </div>
     </div>
   );
