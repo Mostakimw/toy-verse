@@ -150,9 +150,9 @@ const AddToy = () => {
             <option value="" className="text-sm font-medium text-gray-700">
               Select sub-category
             </option>
-            <option value="action-figures">Action Figures</option>
-            <option value="board-games">Board Games</option>
-            <option value="dolls">Dolls</option>
+            <option value="cricket">Cricket</option>
+            <option value="football">Football</option>
+            <option value="tennis">Tennis</option>
             {/* Add more sub-categories here */}
           </select>
         </div>
