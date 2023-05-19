@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { FaEdit, FaRegStar, FaStar, FaTrashAlt } from "react-icons/fa";
 import EditToy from "../EditToy/EditToy";
 import Rating from "react-rating";
+import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const MyToys = () => {
   const [myToys, setMyToys] = useState([]);
@@ -27,34 +29,37 @@ const MyToys = () => {
   };
 
   const handleDeleteToy = (id) => {
-    fetch(`http://localhost:5000/toys/${id}`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        alert("delete successful");
-        if (data.deletedCount > 0) {
-          const remaining = myToys.filter((toy) => toy._id !== id);
-          setMyToys(remaining);
-        }
-      });
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/toys/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+
+            if (data.deletedCount > 0) {
+              const remaining = myToys.filter((toy) => toy._id !== id);
+              setMyToys(remaining);
+            }
+          });
+        Swal.fire("Deleted!", "Your Toy has been deleted.", "success");
+      }
+    });
   };
 
   const handleToysEdit = (data) => {
-    console.log(data);
-    // fetch(`http://localhost:5000/updateJob/${data._id}`, {
-    //   method: "PUT",
-    //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify(data),
-    // })
-    //   .then((res) => res.json())
-    //   .then((result) => {
-    // if (result.modifiedCount > 0) {
-    //   setControl(!control);
-    // }
-    // console.log(result);
-    //   });
+    // useEffect(()=>{
+    //   fetch(`http://localhost:5000/updatetoys/${id}`).then(res=>res.json().then(data=>{console.log(data);}))
+    // },[])
   };
 
   return (
@@ -97,17 +102,19 @@ const MyToys = () => {
                 </td>
                 <td>{toy.price}</td>
                 <td>
-                  <button
-                    onClick={openModal}
-                    title="Edit this toy"
-                    className="text-xl text-[#CF4B5A]"
-                    // eslint-disable-next-line react/no-unknown-property
-                    // toy={toy}
-                    // eslint-disable-next-line react/no-unknown-property
-                    // handleToysEdit={handleToysEdit}
-                  >
-                    <FaEdit />
-                  </button>
+                  <Link to={`/updatetoy/${toy._id}`}>
+                    <button
+                      onClick={openModal}
+                      title="Edit this toy"
+                      className="text-xl text-[#CF4B5A]"
+                      // eslint-disable-next-line react/no-unknown-property
+                      // toy={toy}
+                      // eslint-disable-next-line react/no-unknown-property
+                      // handleToysEdit={handleToysEdit}
+                    >
+                      <FaEdit />
+                    </button>
+                  </Link>
 
                   {/* Render the modal component */}
                   {isModalOpen && <EditToy closeModal={closeModal} />}

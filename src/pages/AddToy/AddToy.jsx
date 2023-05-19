@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
 
 const AddToy = () => {
   const { user } = useContext(AuthContext);
@@ -38,7 +39,15 @@ const AddToy = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        alert("toys added to db");
+        Swal.fire({
+          title: "Your Toy Added Successfully_Yoo",
+          showClass: {
+            popup: "animate__animated animate__fadeInDown",
+          },
+          hideClass: {
+            popup: "animate__animated animate__fadeOutUp",
+          },
+        });
         console.log(data);
       });
   };
