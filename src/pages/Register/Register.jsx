@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { updateProfile } from "firebase/auth";
+import useTitle from "../../hooks/useTitle";
 
 const Register = () => {
   const { registerUser } = useContext(AuthContext);
@@ -12,7 +13,7 @@ const Register = () => {
   const [photoUrl, setPhotoUrl] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-
+  useTitle("Register");
   // ! registration handler
   const handleRegister = (e) => {
     e.preventDefault();

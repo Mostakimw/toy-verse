@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FaEdit, FaRegStar, FaStar, FaTrashAlt } from "react-icons/fa";
 import EditToy from "../EditToy/EditToy";
 import Rating from "react-rating";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import useTitle from "../../hooks/useTitle";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const MyToys = () => {
+  const { user } = useContext(AuthContext);
   const [myToys, setMyToys] = useState([]);
   // const { _id, toyName, toyImg, subCategory, sellerName, rating, price } = myToys || {};
   //   console.log(myToys);
@@ -55,6 +58,7 @@ const MyToys = () => {
       }
     });
   };
+  useTitle(`My-Toy ${user.email}`);
 
   const handleToysEdit = (data) => {
     // useEffect(()=>{

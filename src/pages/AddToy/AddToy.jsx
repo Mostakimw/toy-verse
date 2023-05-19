@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
+import useTitle from "../../hooks/useTitle";
 
 const AddToy = () => {
   const { user } = useContext(AuthContext);
@@ -51,6 +52,7 @@ const AddToy = () => {
         console.log(data);
       });
   };
+  useTitle(`Add-Toy ${user.email}`);
 
   return (
     <form onSubmit={handleSubmit} className="max-w-7xl mx-auto mt-12">
