@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { FaEdit, FaTrashAlt } from "react-icons/fa";
+import { FaEdit, FaRegStar, FaStar, FaTrashAlt } from "react-icons/fa";
 import EditToy from "../EditToy/EditToy";
+import Rating from "react-rating";
 
 const MyToys = () => {
   const [myToys, setMyToys] = useState([]);
-  //   const { _id, toyName, toyImg, subCategory, sellerName, rating, price } = myToys || {};
+  // const { _id, toyName, toyImg, subCategory, sellerName, rating, price } = myToys || {};
   //   console.log(myToys);
   useEffect(() => {
     fetch("http://localhost:5000/toys")
@@ -84,7 +85,16 @@ const MyToys = () => {
                 <td>{toy.toyName}</td>
                 <td>{toy.sellerName}</td>
                 <td>{toy.subCategory}</td>
-                <td>4.5</td>
+                <td>
+                  <Rating
+                    placeholderRating={toy.rating}
+                    emptySymbol={<FaRegStar></FaRegStar>}
+                    placeholderSymbol={
+                      <FaStar className="text-[#CF4B5A]"></FaStar>
+                    }
+                    fullSymbol={<FaStar></FaStar>}
+                  />
+                </td>
                 <td>{toy.price}</td>
                 <td>
                   <button

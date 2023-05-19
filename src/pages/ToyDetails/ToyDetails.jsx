@@ -1,4 +1,6 @@
 import React from "react";
+import { FaRegStar, FaStar } from "react-icons/fa";
+import Rating from "react-rating";
 import { useLoaderData } from "react-router-dom";
 
 const ToyDetails = () => {
@@ -38,8 +40,15 @@ const ToyDetails = () => {
           <p className="text-gray-700 mb-2">
             <span className="font-medium">Price: </span> {price}
           </p>
-          <p className="text-gray-700 mb-2">
-            <span className="font-medium">Rating: </span> {rating}
+          <p className="text-gray-700 mb-2 flex items-center">
+            <span className="font-medium mr-2">Rating: </span>{" "}
+            <Rating
+              placeholderRating={rating}
+              emptySymbol={<FaRegStar></FaRegStar>}
+              placeholderSymbol={<FaStar className="text-[#CF4B5A]"></FaStar>}
+              fullSymbol={<FaStar></FaStar>}
+            />{" "}
+            <span className="font-medium ml-2">{rating}</span>
           </p>
           <p className="text-gray-700 mb-2">
             <span className="font-medium">Available: </span>
