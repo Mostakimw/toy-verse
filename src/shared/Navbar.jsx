@@ -5,12 +5,13 @@ import {
   FaRegWindowClose,
   FaSignOutAlt,
 } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Navbar = () => {
   const { user, logoutUser } = useContext(AuthContext);
   const [isOpen, setIsOpen] = useState(false);
+  const [isActive, setIsActive] = useState(false);
 
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
@@ -48,36 +49,36 @@ const Navbar = () => {
             </div>
             <div className="hidden sm:block sm:ml-6">
               <div className="flex space-x-4">
-                <Link
+                <NavLink
                   to="/"
-                  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                  className={`my-nav-btn ${isActive ? "active" : "default"}`}
                 >
                   Home
-                </Link>
-                <Link
+                </NavLink>
+                <NavLink
                   to="/blogs"
-                  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                  className={`my-nav-btn ${isActive ? "active" : "default"}`}
                 >
                   Blogs
-                </Link>
-                <Link
+                </NavLink>
+                <NavLink
                   to="/all-toys"
-                  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                  className={`my-nav-btn ${isActive ? "active" : "default"}`}
                 >
                   All Toys
-                </Link>
-                <Link
+                </NavLink>
+                <NavLink
                   to="/add-toy"
-                  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                  className={`my-nav-btn ${isActive ? "active" : "default"}`}
                 >
                   Add Toy
-                </Link>
-                <Link
+                </NavLink>
+                <NavLink
                   to="/my-toys"
-                  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                  className={`my-nav-btn ${isActive ? "active" : "default"}`}
                 >
                   My Toys
-                </Link>
+                </NavLink>
               </div>
             </div>
           </div>
@@ -130,33 +131,42 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+
+      {/* for mobile responsive  */}
+
       {isOpen && (
         <div className="sm:hidden" id="mobile-menu">
           <div className="px-2 pt-2 pb-3 space-y-1">
-            <Link
+            <NavLink
               to="/"
-              className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+              className={`my-nav-btn ${isActive ? "active" : "default"}`}
             >
               Home
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
               to="/blogs"
-              className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+              className={`my-nav-btn ${isActive ? "active" : "default"}`}
             >
               Blogs
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
               to="/all-toys"
-              className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+              className={`my-nav-btn ${isActive ? "active" : "default"}`}
             >
               All Toys
-            </Link>
-            <Link
-              to="/login"
-              className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+            </NavLink>
+            <NavLink
+              to="/add-toy"
+              className={`my-nav-btn ${isActive ? "active" : "default"}`}
             >
-              Login
-            </Link>
+              Add Toy
+            </NavLink>
+            <NavLink
+              to="/my-toys"
+              className={`my-nav-btn ${isActive ? "active" : "default"}`}
+            >
+              My Toys
+            </NavLink>
           </div>
         </div>
       )}
