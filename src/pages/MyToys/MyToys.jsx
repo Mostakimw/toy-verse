@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
 import { FaEdit, FaRegStar, FaStar, FaTrashAlt } from "react-icons/fa";
-import EditToy from "../EditToy/EditToy";
 import Rating from "react-rating";
 import Swal from "sweetalert2";
 import useTitle from "../../hooks/useTitle";
@@ -10,23 +9,23 @@ import { Link } from "react-router-dom";
 const MyToys = () => {
   const { user } = useContext(AuthContext);
   const [myToys, setMyToys] = useState([]);
-  // const [sort, setSort] = useState("");
 
-  // const { _id, toyName, toyImg, subCategory, sellerName, rating, price } = myToys || {};
-  //   console.log(myToys);
+  const [sortOption, setSortOption] = useState("");
 
   useEffect(() => {
-    fetch(`http://localhost:5000/mytoys/${user?.email}`)
+    fetch(
+      `http://localhost:5000/mytoys?email=${user?.email}&sort=${sortOption}`
+    )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setMyToys(data);
       });
-  }, [user]);
-  // const handleSortChange = (event) => {
-  //   const selectedSort = event.target.value;
-  //   setSort(selectedSort);
-  // };
+  }, [user, sortOption]);
+
+  const handleSortChange = (e) => {
+    const selectedOption = e.target.value;
+    setSortOption(selectedOption);
+  };
 
   const handleDeleteToy = (id) => {
     Swal.fire({
@@ -56,29 +55,18 @@ const MyToys = () => {
     });
   };
 
-  useTitle(`My-Toy ${user.email}`);
-
-  const handleToysEdit = (data) => {
-    // useEffect(()=>{
-    //   fetch(`http://localhost:5000/updatetoys/${id}`).then(res=>res.json().then(data=>{console.log(data);}))
-    // },[])
-  };
+  useTitle(`My-Toy - ${user.email}`);
 
   return (
     <div className="max-w-[90%] mx-auto mt-8">
       <h1 className="my-title">My all Toys</h1>
       <div>
-        <select>
+        <select value={sortOption} onChange={handleSortChange}>
           <option value="">Sort by</option>
           <option value="asc">Price: Low to High</option>
           <option value="desc">Price: High to Low</option>
         </select>
       </div>
-      {/* <div><select onChange={handleSortChange}>
-  <option value="">Sort by</option>
-  <option value="asc">Price: Low to High</option>
-  <option value="desc">Price: High to Low</option>
-</select></div> */}
       <div className="overflow-x-auto mt-12">
         <table className="table table-compact w-full">
           <thead>
@@ -88,6 +76,7 @@ const MyToys = () => {
               <th>Name</th>
               <th>Seller Name</th>
               <th>Sub-Category</th>
+              <th>Description</th>
               <th>Rating</th>
               <th>Price</th>
               <th>Edit</th>
@@ -98,10 +87,15 @@ const MyToys = () => {
             <tbody key={toy._id}>
               <tr>
                 <th>{index + 1}</th>
-                <td>{toy.toyImg}</td>
-                <td>{toy.toyName}</td>
+                <td>
+                  <img src={toy.toyImg} alt="" className="w-80 h-80 px-4" />
+                </td>
+                <td className="whitespace-pre-line">{toy.toyName}</td>
                 <td>{toy.sellerName}</td>
                 <td>{toy.subCategory}</td>
+                <td>
+                  <p className="whitespace-pre-line pr-6">{toy.description}</p>
+                </td>
                 <td>
                   <Rating
                     placeholderRating={toy.rating}

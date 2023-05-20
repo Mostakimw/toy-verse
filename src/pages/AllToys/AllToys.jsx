@@ -4,7 +4,7 @@ import { Link, useLoaderData } from "react-router-dom";
 import useTitle from "../../hooks/useTitle";
 
 const AllToys = () => {
-  const allToys = useLoaderData();
+  const allToys = useLoaderData() || [];
   useTitle("All-Toys");
   const [toys, setToys] = useState(allToys.slice(0, 20));
   const [searchText, setSearchText] = useState("");
