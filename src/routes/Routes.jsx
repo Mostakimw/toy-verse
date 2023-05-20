@@ -10,6 +10,7 @@ import ToyDetails from "../pages/ToyDetails/ToyDetails";
 import PrivateRoutes from "./PrivateRoutes";
 import EditToy from "../pages/EditToy/EditToy";
 import Error from "../pages/ErrorPage/Error";
+import Blogs from "../pages/Blogs/Blogs";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: "register",
         element: <Register />,
+      },
+      {
+        path: "blogs",
+        element: <Blogs />,
       },
       {
         path: "add-toy",
