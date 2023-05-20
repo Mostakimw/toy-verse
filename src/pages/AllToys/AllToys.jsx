@@ -9,7 +9,9 @@ const AllToys = () => {
   const [toys, setToys] = useState(allToys);
   const [searchText, setSearchText] = useState("");
   const handlerSearch = () => {
-    fetch(`http://localhost:5000/toys/toys-name/${searchText}`)
+    fetch(
+      `https://toy-verse-server-mostakimw.vercel.app/toys/toys-name/${searchText}`
+    )
       .then((res) => res.json())
       .then((data) => setToys(data));
   };

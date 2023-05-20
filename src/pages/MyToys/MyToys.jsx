@@ -14,7 +14,7 @@ const MyToys = () => {
 
   useEffect(() => {
     fetch(
-      `http://localhost:5000/mytoys?email=${user?.email}&sort=${sortOption}`
+      `https://toy-verse-server-mostakimw.vercel.app/mytoys?email=${user?.email}&sort=${sortOption}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -38,7 +38,7 @@ const MyToys = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/toys/${id}`, {
+        fetch(`https://toy-verse-server-mostakimw.vercel.app/toys/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

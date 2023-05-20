@@ -55,12 +55,15 @@ const router = createBrowserRouter([
         path: "my-toys/:id",
         element: <EditToy></EditToy>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/toys/${params.id}`),
+          fetch(
+            `https://toy-verse-server-mostakimw.vercel.app/toys/${params.id}`
+          ),
       },
       {
         path: "all-toys",
         element: <AllToys></AllToys>,
-        loader: () => fetch("http://localhost:5000/toys?limit=20"),
+        loader: () =>
+          fetch("https://toy-verse-server-mostakimw.vercel.app/toys?limit=20"),
       },
       {
         path: "toys/:id",
@@ -70,7 +73,9 @@ const router = createBrowserRouter([
           </PrivateRoutes>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/toys/${params.id}`),
+          fetch(
+            `https://toy-verse-server-mostakimw.vercel.app/toys/${params.id}`
+          ),
       },
     ],
   },

@@ -9,8 +9,8 @@ const Category = () => {
   const [activeTab, setActiveTab] = useState("");
   useEffect(() => {
     const url = activeTab
-      ? `http://localhost:5000/alltoys/${activeTab}`
-      : "http://localhost:5000/toys";
+      ? `https://toy-verse-server-mostakimw.vercel.app/alltoys/${activeTab}`
+      : "https://toy-verse-server-mostakimw.vercel.app/toys";
     fetch(url)
       .then((res) => res.json())
       .then((data) => {

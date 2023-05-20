@@ -1,4 +1,4 @@
-## **Live Site:** [ToyVerse](https://toy-verse-a4660.web.app/)
+## **Live Site:** [ToyVerse](https://toy-verse-server-mostakimw.vercel.app/)
 
 ## ** TOY VERSE WEBSITE **
 

@@ -29,9 +29,8 @@ const AddToy = () => {
       subCategory,
       description,
     };
-    console.log(toys);
 
-    fetch("http://localhost:5000/toys", {
+    fetch("https://toy-verse-server-mostakimw.vercel.app/toys", {
       method: "POST",
       headers: {
         "content-type": "application/json",

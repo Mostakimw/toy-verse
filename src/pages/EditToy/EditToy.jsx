@@ -43,7 +43,7 @@ const EditToy = () => {
     };
     console.log(toys);
 
-    fetch(`http://localhost:5000/toys/${_id}`, {
+    fetch(`https://toy-verse-server-mostakimw.vercel.app/toys/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
