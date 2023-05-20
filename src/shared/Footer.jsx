@@ -3,15 +3,26 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <footer className="footer footer-center p-10 bg-base-200 text-base-content rounded mt-12">
-      <div className="grid grid-flow-col gap-4">
-        <a className="link link-hover">About us</a>
-        <a className="link link-hover">Contact</a>
-        <Link to="/all-toys">
-          <button className="link link-hover">All Toys</button>
-        </Link>
-        <Link to="/register">
-          <button className="link link-hover">Join Us</button>
-        </Link>
+      <div>
+        <img
+          src="https://i.ibb.co/L5wDSVd/Logo01.png"
+          className="w-60"
+          alt=""
+        />
+      </div>
+      <div className="grid grid-flow-row gap-4">
+        <a className="link link-hover text-lg text-gray-900 font-medium hover:text-[#CF4B5A]">
+          Contact Information
+        </a>
+        <p className="text-[#757575]">
+          Address: 123 Main Street, Dhaka, Bangladesh
+        </p>
+        <p className="text-[#757575]">Phone: +1 123-456-7890</p>
+        <p className="text-[#757575]">Email: toy@verse.com</p>
+      </div>
+
+      <div>
+        <p>Copyright © 2023 - ToyVerse</p>
       </div>
       <div>
         <div className="grid grid-flow-col gap-4">
@@ -49,9 +60,6 @@ const Footer = () => {
             </svg>
           </button>
         </div>
-      </div>
-      <div>
-        <p>Copyright © 2023 - All right reserved by ToyVerse</p>
       </div>
     </footer>
   );

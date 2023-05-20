@@ -6,9 +6,11 @@ import useTitle from "../../hooks/useTitle";
 
 const Login = () => {
   const { loginUser, user, googleSignIn } = useContext(AuthContext);
+  console.log(loginUser);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  console.log(email, password);
   useTitle("Login");
   const navigate = useNavigate();
   const location = useLocation();
@@ -42,7 +44,7 @@ const Login = () => {
             <h2 className="my-title">Please Login</h2>
             <form onSubmit={handleLogin}>
               <div className="pt-5">
-                {user && <p className="text-error mb-2">{error}</p>}
+                {user ? <p className="text-error mb-2">{error}</p> : ""}
               </div>
               <div className="mb-4">
                 <label className="block text-gray-700 text-sm font-bold mb-2">

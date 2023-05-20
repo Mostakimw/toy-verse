@@ -6,7 +6,6 @@ import useTitle from "../../hooks/useTitle";
 
 const ToyDetails = () => {
   const singleToys = useLoaderData();
-  console.log(singleToys);
   const {
     _id,
     toyName,
@@ -17,18 +16,15 @@ const ToyDetails = () => {
     rating,
     price,
     availableQuantity,
+    description,
   } = singleToys;
   useTitle(toyName);
   return (
-    <div className="mt-10">
+    <div className="mt-10 max-w-7xl mx-auto">
       <h1 className="my-title">{toyName} Details</h1>
-      <div className="grid grid-cols-12 mx-auto p-8 bg-white rounded-lg shadow-lg">
+      <div className="lg:grid grid-cols-12 gap-8 mx-auto p-8 bg-white rounded-lg shadow-lg">
         <div className="col-span-4">
-          <img
-            src="https://m.media-amazon.com/images/I/51trXYalHHL._SL1500_.jpg"
-            alt="Toy"
-            className="w-full rounded-t-lg"
-          />
+          <img src={toyImg} alt="Toy" className="w-full rounded-t-lg" />
         </div>
         <div className="p-4 col-span-5 flex flex-col justify-center">
           <h2 className="text-2xl font-bold mb-2">{toyName}</h2>
@@ -58,11 +54,15 @@ const ToyDetails = () => {
           </p>
           <hr className="my-2" />
           <p>
-            <span className="font-medium">Description: </span> Lorem ipsum dolor
-            sit amet, consectetur adipiscing elit. Nullam in turpis id est
-            rutrum hendrerit Lorem ipsum dolor sit amet consectetur, adipisicing
-            elit. Architecto, alias. .
+            <span className="font-medium">Description: </span> {description}
           </p>
+        </div>
+        <div className="col-span-3 flex items-center">
+          <img
+            className="w-full rounded-lg"
+            src="https://junotoys.themerex.net/wp-content/uploads/2020/04/post28-copyright.jpg"
+            alt=""
+          />
         </div>
       </div>
     </div>

@@ -5,18 +5,18 @@ const Blogs = () => {
     <div>
       {/* The button to open modal */}
       <div className="flex flex-col gap-8 justify-center items-center min-h-[calc(100vh-288px)]">
-        <label htmlFor="q-1" className="my-btn">
+        <label htmlFor="q-1" className="blog-btn">
           What is an access token and refresh token? How do they work and where
           should we store them on the client-side?
         </label>
-        <label htmlFor="q-2" className="my-btn">
+        <label htmlFor="q-2" className="blog-btn">
           Difference between SQL and NoSQL databases?
         </label>
-        <label htmlFor="q-3" className="my-btn">
+        <label htmlFor="q-3" className="blog-btn">
           What is MongoDB aggregate and how does it work?
         </label>
-        <label htmlFor="q-4" className="my-btn">
-          What is express js? What is Nest JS?
+        <label htmlFor="q-4" className="blog-btn">
+          What is express JS? What is Nest JS?
         </label>
       </div>
       {/*  question one  */}
@@ -83,12 +83,12 @@ const Blogs = () => {
         </div>
       </div>
 
-      {/*  question two  */}
+      {/*  question three  */}
       <input type="checkbox" id="q-3" className="modal-toggle" />
       <div className="modal modal-bottom sm:modal-middle">
         <div className="modal-box">
           <h3 className="font-bold text-lg">
-            Difference between SQL and NoSQL databases?
+            What is MongoDB aggregate and how does it work?
           </h3>
           <p className="py-4">
             In MongoDB aggregate method is used to perform advanced data
@@ -108,12 +108,12 @@ const Blogs = () => {
         </div>
       </div>
 
-      {/*  question two  */}
+      {/*  question four  */}
       <input type="checkbox" id="q-4" className="modal-toggle" />
       <div className="modal modal-bottom sm:modal-middle">
         <div className="modal-box">
           <h3 className="font-bold text-lg">
-            Difference between SQL and NoSQL databases?
+            What is express JS? What is Nest JS?
           </h3>
           <p className="py-4">
             Express js is a minimal and flexible Node.js web application

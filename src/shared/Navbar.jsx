@@ -159,22 +159,26 @@ const Navbar = () => {
             >
               All Toys
             </NavLink>
-            <NavLink
-              to="/add-toy"
-              className={`my-nav-btn ${isActive ? "active" : "default"}${
-                !user ? "hidden" : "default"
-              }`}
-            >
-              Add Toy
-            </NavLink>
-            <NavLink
-              to="/my-toys"
-              className={`my-nav-btn ${isActive ? "active" : "default"}${
-                !user ? "hidden" : "default"
-              }`}
-            >
-              My Toys
-            </NavLink>
+            {user && (
+              <NavLink
+                to="/add-toy"
+                className={`my-nav-btn ${isActive ? "active" : "default"}${
+                  !user ? "hidden" : "default"
+                }`}
+              >
+                Add Toy
+              </NavLink>
+            )}
+            {user && (
+              <NavLink
+                to="/my-toys"
+                className={`my-nav-btn ${isActive ? "active" : "default"}${
+                  !user ? "hidden" : "default"
+                }`}
+              >
+                My Toys
+              </NavLink>
+            )}
           </div>
           {user ? (
             <div className="dropdown dropdown-end py-2 flex justify-center">
@@ -198,7 +202,7 @@ const Navbar = () => {
             </div>
           ) : (
             <Link to="/login" className="flex py-3 justify-center">
-              <button className="my-btn">Login</button>
+              <button className="my-btn block">Login</button>
             </Link>
           )}
         </div>

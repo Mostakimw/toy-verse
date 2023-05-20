@@ -9,10 +9,8 @@ import {
 const Contact = () => {
   return (
     <div className="bg-gray-100 mt-10 py-16">
-      <h1 className="text-3xl font-bold text-center text-gray-800">
-        Contact Us
-      </h1>
-      <div className="lg:flex justify-around max-w-7xl mx-auto mt-10 space-y-10">
+      <h1 className="my-title">Contact Us</h1>
+      <div className="lg:flex justify-around max-w-7xl mx-auto mt-10 max-sm:space-y-10">
         <div className=" space-y-3">
           <div className="flex justify-center mb-8">
             <FaPhone className="text-6xl text-[#CF4B5A] " />
