@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FaArrowAltCircleRight } from "react-icons/fa";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import useTitle from "../../hooks/useTitle";
 
 const AllToys = () => {
@@ -63,17 +63,21 @@ const AllToys = () => {
           {toys.map((toy) => (
             <tbody key={toy._id}>
               <tr>
-                <td>{toy.toyImg}</td>
+                <td>
+                  <img src={toy.toyImg} alt="" className="w-60 h-60" />
+                </td>
                 <td>{toy.toyName}</td>
                 <td>{toy.sellerName}</td>
                 <td>{toy.subCategory}</td>
                 <td>{toy.price}</td>
                 <td>{toy.availableQuantity}</td>
                 <td>
-                  <button className="my-btn">
-                    View Details{" "}
-                    <FaArrowAltCircleRight className="inline-block ml-2 " />
-                  </button>
+                  <Link to={`/toys/${toy._id}`}>
+                    <button className="my-btn">
+                      View Details{" "}
+                      <FaArrowAltCircleRight className="inline-block ml-2 " />
+                    </button>
+                  </Link>
                 </td>
               </tr>
             </tbody>

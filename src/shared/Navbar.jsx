@@ -44,7 +44,11 @@ const Navbar = () => {
           <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
             <div className="flex-shrink-0">
               <Link to="/">
-                <h1 className="text-white text-lg link">ToyVerse</h1>
+                <img
+                  src="https://i.ibb.co/L5wDSVd/Logo01.png"
+                  className="w-40"
+                  alt=""
+                />
               </Link>
             </div>
             <div className="hidden sm:block sm:ml-6">

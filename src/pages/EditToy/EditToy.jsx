@@ -24,7 +24,7 @@ const EditToy = () => {
     const form = event.target;
     const toyName = form.toyName.value;
     const toyImg = form.toyImg.value;
-    const price = `${form.price.value}`;
+    const price = form.price.value;
     const rating = form.rating.value;
     const availableQuantity = form.availableQuantity.value;
     const description = form.description.value;

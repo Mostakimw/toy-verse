@@ -1,0 +1,101 @@
+[
+  {
+    "toyName": "Mini Tennis Set",
+    "toyImg": "https://m.media-amazon.com/images/I/91y6P3LZFTL._AC_UL600_FMwebp_QL65_.jpg",
+    "sellerName": "Sports World",
+    "sellerEmail": "sales@sportsworld.com",
+    "price": "$19.99",
+    "rating": "4.5",
+    "availableQuantity": 50,
+    "subCategory": "tennis",
+    "description": "Introduce your little ones to tennis with this mini tennis set. It includes two rackets, a soft ball, and a carrying case for easy storage and transportation."
+  },
+  {
+    "toyName": "Junior Cricket Bat",
+    "toyImg": "https://m.media-amazon.com/images/I/71zNOdn-SEL._AC_UL600_FMwebp_QL65_.jpg",
+    "sellerName": "Cricket Paradise",
+    "sellerEmail": "info@cricketparadise.com",
+    "price": "$24.99",
+    "rating": "4.2",
+    "availableQuantity": 30,
+    "subCategory": "cricket",
+    "description": "Get your kids started in cricket with this junior cricket bat. It's lightweight, made from durable material, and perfect for young aspiring cricketers."
+  },
+  {
+    "toyName": "Inflatable Football Goal",
+    "toyImg": "https://m.media-amazon.com/images/I/91f7YCbvByL._AC_UL600_FMwebp_QL65_.jpg",
+    "sellerName": "Goal Masters",
+    "sellerEmail": "sales@goalmasters.com",
+    "price": "$39.99",
+    "rating": "4.7",
+    "availableQuantity": 20,
+    "subCategory": "football",
+    "description": "Turn any space into a football field with this inflatable goal. It's easy to set up, portable, and great for backyard games or beach play."
+  },
+  {
+    "toyName": "Tennis Trainer Set",
+    "toyImg": "https://m.media-amazon.com/images/I/61IWHV717SL._AC_UL600_FMwebp_QL65_.jpg",
+    "sellerName": "Active Sports",
+    "sellerEmail": "info@activesports.com",
+    "price": "$34.99",
+    "rating": "4.6",
+    "availableQuantity": 15,
+    "subCategory": "tennis",
+    "description": "Practice your tennis skills anytime, anywhere with this tennis trainer set. It includes a durable base, an adjustable cord, and a training ball."
+  },
+  {
+    "toyName": "Cricket Catching Practice Set",
+    "toyImg": "https://m.media-amazon.com/images/I/81Jc8rqS4oL._AC_UL600_FMwebp_QL65_.jpg",
+    "sellerName": "Sports Mania",
+    "sellerEmail": "sales@sportsmania.com",
+    "price": "$29.99",
+    "rating": "4.4",
+    "availableQuantity": 25,
+    "subCategory": "cricket",
+    "description": "Improve your catching skills with this cricket practice set. It includes a rebound net, balls, and adjustable straps for easy setup."
+  },
+  {
+    "toyName": "Tennis Ball Hopper",
+    "toyImg": "https://m.media-amazon.com/images/I/81O7GFyhdcL._AC_UL600_FMwebp_QL65_.jpg",
+    "sellerName": "Tennis Pro Shop",
+    "sellerEmail": "info@tennisproshop.com",
+    "price": "$14.99",
+    "rating": "4.7",
+    "availableQuantity": 40,
+    "subCategory": "tennis",
+    "description": "Keep your tennis balls organized with this convenient ball hopper. It can hold up to 50 balls and features a sturdy handle for easy carrying."
+  },
+  {
+    "toyName": "Cricket Batting Tee",
+    "toyImg": "https://m.media-amazon.com/images/I/61xujKv8FdL._AC_UL600_FMwebp_QL65_.jpg",
+    "sellerName": "Cricket Zone",
+    "sellerEmail": "sales@cricketzone.com",
+    "price": "$19.99",
+    "rating": "4.6",
+    "availableQuantity": 35,
+    "subCategory": "cricket",
+    "description": "Practice your batting skills with this cricket batting tee. It's adjustable, lightweight, and perfect for honing your technique."
+  },
+  {
+    "toyName": "Kids' Football Training Cone Set",
+    "toyImg": "https://m.media-amazon.com/images/I/61h8Pwz7A5L._AC_UL600_FMwebp_QL65_.jpg",
+    "sellerName": "Sporty Kids",
+    "sellerEmail": "info@sportykids.com",
+    "price": "$9.99",
+    "rating": "4.5",
+    "availableQuantity": 50,
+    "subCategory": "football",
+    "description": "Enhance your football skills with this set of training cones. It includes brightly colored cones for various drills and exercises."
+  },
+  {
+    "toyName": "Portable Tennis Net and Racket Set",
+    "toyImg": "https://cdn.shopify.com/s/files/1/0367/1369/products/3M_Tennis_030_WA_1024x1024.jpg?v=1571426594",
+    "sellerName": "On-the-Go Sports",
+    "sellerEmail": "sales@onthegosports.com",
+    "price": "$49.99",
+    "rating": "4.8",
+    "availableQuantity": 20,
+    "subCategory": "tennis",
+    "description": "Play tennis anywhere with this portable net and racket set. It's lightweight, easy to assemble, and comes with two rackets and a carrying bag."
+  }
+]
