@@ -6,7 +6,12 @@ import { Link } from "react-router-dom";
 const ToyCard = ({ toy }) => {
   const { _id, toyName, toyImg, rating, price } = toy;
   return (
-    <div className="w-full bg-white border shadow-lg rounded-lg mt-6">
+    <div
+      data-aos="zoom-in"
+      data-aos-duration="1000"
+      data-aos-delay="200"
+      className="w-full bg-white border shadow-lg rounded-lg mt-6"
+    >
       <img src={toyImg} className="w-full h-80" />
       <hr className="py-2" />
       <div className="p-4 h-auto space-y-4 ">

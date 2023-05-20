@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 import ToyCard from "./ToyCard";
 
 const Category = () => {
@@ -11,8 +14,8 @@ const Category = () => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setToys(data);
+        AOS.init();
       });
   }, [activeTab]);
 
