@@ -88,7 +88,7 @@ const MyToys = () => {
               <tr>
                 <th>{index + 1}</th>
                 <td>
-                  <img src={toy.toyImg} alt="" className="w-80 h-80 px-4" />
+                  <img src={toy.toyImg} alt="" className="w-full  px-4" />
                 </td>
                 <td className="whitespace-pre-line">{toy.toyName}</td>
                 <td>{toy.sellerName}</td>
@@ -106,7 +106,7 @@ const MyToys = () => {
                     fullSymbol={<FaStar></FaStar>}
                   />
                 </td>
-                <td>{toy.price}</td>
+                <td>${toy.price}</td>
                 <td>
                   <Link to={`/my-toys/${toy._id}`}>
                     <button

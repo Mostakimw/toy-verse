@@ -70,7 +70,7 @@ const EditToy = () => {
   return (
     <div>
       <h1 className="text-4xl font-medium my-8 text-center bg-gradient-to-r from-red-500 to-[#CF4B5A] text-transparent bg-clip-text">
-        My all Toys
+        My All Toys
       </h1>
       <form onSubmit={handleSubmit} className="max-w-7xl mx-auto mt-2">
         <div className="form-control grid lg:grid-cols-2 gap-8">

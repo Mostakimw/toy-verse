@@ -12,7 +12,7 @@ const AddToy = () => {
     const toyImg = form.toyImg.value;
     const sellerName = form.sellerName.value;
     const sellerEmail = form.sellerEmail.value;
-    const price = `$${form.price.value}`;
+    const price = form.price.value;
     const rating = form.rating.value;
     const availableQuantity = form.availableQuantity.value;
     const subCategory = form.subCategory.value;
@@ -117,7 +117,7 @@ const AddToy = () => {
         <div>
           <label className="input-group">
             <span className="flex flex-shrink-0 text-sm font-medium text-gray-700">
-              Price
+              Price (USD)
             </span>
             <input
               name="price"

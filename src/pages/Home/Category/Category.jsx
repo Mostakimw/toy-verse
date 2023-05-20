@@ -26,14 +26,29 @@ const Category = () => {
       <p>Playful Sporting Excursions: Explore Our Toy Categories</p>
       <div>
         <p className="text-center font-medium mt-8">Filter Toys by Category</p>
-        <div className="btn-group btn-group-vertical lg:btn-group-horizontal mt-6">
-          <button onClick={() => handlerByCategory("cricket")} className="btn">
+        <div className="btn-group lg:btn-group-horizontal mt-6">
+          <button
+            onClick={() => handlerByCategory("cricket")}
+            className={`btn ${
+              activeTab == "cricket" ? "bg-[#CF4B5A] border-none" : "default"
+            }`}
+          >
             Cricket
           </button>
-          <button onClick={() => handlerByCategory("tennis")} className="btn">
+          <button
+            onClick={() => handlerByCategory("tennis")}
+            className={`btn ${
+              activeTab == "tennis" ? "bg-[#CF4B5A] border-none" : "default"
+            }`}
+          >
             Tennis
           </button>
-          <button onClick={() => handlerByCategory("football")} className="btn">
+          <button
+            onClick={() => handlerByCategory("football")}
+            className={`btn ${
+              activeTab == "football" ? "bg-[#CF4B5A] border-none" : "default"
+            }`}
+          >
             Football
           </button>
         </div>

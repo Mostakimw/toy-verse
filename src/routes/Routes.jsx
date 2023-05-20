@@ -60,8 +60,7 @@ const router = createBrowserRouter([
       {
         path: "all-toys",
         element: <AllToys></AllToys>,
-        loader: () =>
-          fetch("https://toy-verse-server-mostakimw.vercel.app/toys"),
+        loader: () => fetch("http://localhost:5000/toys"),
       },
       {
         path: "toys/:id",

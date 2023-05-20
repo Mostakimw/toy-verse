@@ -11,7 +11,7 @@ const Banner = () => {
           className="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center space-y-6"
           style={{ backgroundColor: "rgba(0, 0, 0, 0.6)" }}
         >
-          <h1 className="text-4xl font-bold text-center text-white">
+          <h1 className="text-6xl font-bold text-center text-white ">
             Toy Verse - Where Fun Begins!
           </h1>
           <p className="text-xl text-white lg:w-1/3 px-3 mx-auto text-center">

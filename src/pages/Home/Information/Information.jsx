@@ -3,9 +3,9 @@ import { FaMobile, FaPaypal, FaRunning, FaShippingFast } from "react-icons/fa";
 
 const Information = () => {
   return (
-    <div className="mt-10">
+    <div className="mt-16">
       <h1 className="my-title">Most Important Attraction</h1>
-      <div className=" bg-[#CF4B5A] py-10 text-gray-100 mt-10">
+      <div className=" bg-[#CF4B5A] py-16 text-gray-100 mt-10">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 max-sm:space-y-8">
           <div className="border-r-2 flex flex-col items-center space-y-4">
             <FaShippingFast className="text-4xl" />

@@ -16,5 +16,5 @@
 }
 
 .my-title {
-  @apply text-4xl font-bold  mb-8 text-center text-transparent bg-gradient-to-r bg-clip-text from-[#CF4B5A] from-10% via-purple-500 via-40% to-red-500 to-90%;
+  @apply text-4xl font-bold  mb-8 text-center text-transparent bg-gradient-to-r bg-clip-text from-[#CF4B5A] to-purple-500;
 }
