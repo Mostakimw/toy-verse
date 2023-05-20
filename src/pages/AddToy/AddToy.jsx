@@ -166,7 +166,6 @@ const AddToy = () => {
             <option value="cricket">Cricket</option>
             <option value="football">Football</option>
             <option value="tennis">Tennis</option>
-            {/* Add more sub-categories here */}
           </select>
         </div>
         <div>
@@ -185,7 +184,7 @@ const AddToy = () => {
       <label className="flex justify-center">
         <input
           type="submit"
-          value="Submit"
+          value="Add Toy"
           className="my-btn mt-8 hover:cursor-pointer"
         />
       </label>

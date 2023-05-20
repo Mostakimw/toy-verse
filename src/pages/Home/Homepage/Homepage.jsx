@@ -10,7 +10,7 @@ const Homepage = () => {
   return (
     <div>
       <Banner />
-      {/* <PhotoGallery /> */}
+      <PhotoGallery />
       <Category></Category>
       <Information />
       <Contact />

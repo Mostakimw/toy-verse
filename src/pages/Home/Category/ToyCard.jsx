@@ -9,7 +9,7 @@ const ToyCard = ({ toy }) => {
     <div className="w-full h-fit bg-white border shadow-lg rounded-lg mt-12">
       <img src={toyImg} className="w-full h-80 px-3 py-4" />
       <hr className="py-2" />
-      <div className="p-4 bg-purple-300 space-y-4 ">
+      <div className="p-4 h-auto bg-gray-200 space-y-4 ">
         <h3 className="text-gray-800 font-semibold text-2xl">{toyName}</h3>
         <div className="mt-2 flex items-center justify-around flex-grow-0 flex-shrink-0">
           <p className="text-gray-600">Price: {price}</p>

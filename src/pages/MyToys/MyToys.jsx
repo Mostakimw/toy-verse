@@ -66,9 +66,7 @@ const MyToys = () => {
 
   return (
     <div className="max-w-[90%] mx-auto mt-8">
-      <h1 className="text-4xl font-medium text-center bg-gradient-to-r from-red-500 to-[#CF4B5A] text-transparent bg-clip-text">
-        My all Toys
-      </h1>
+      <h1 className="my-title">My all Toys</h1>
       <div>
         <select>
           <option value="">Sort by</option>

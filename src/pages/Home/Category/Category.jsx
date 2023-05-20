@@ -22,7 +22,7 @@ const Category = () => {
   };
   return (
     <div className="w-[90%] mx-auto text-center mt-12">
-      <h1 className="text-3xl font-bold text-gray-800 mb-3">Category</h1>
+      <h1 className="my-title">Category</h1>
       <p>Playful Sporting Excursions: Explore Our Toy Categories</p>
       <div>
         <p className="text-center font-medium mt-8">Filter Toys by Category</p>

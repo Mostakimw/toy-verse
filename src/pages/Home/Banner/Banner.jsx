@@ -15,7 +15,7 @@ const Banner = () => {
           Explore our extensive collection of toys designed to inspire laughter,
           curiosity, and endless play.{" "}
         </p>
-        <button className="btn btn-outline border-white text-white hover:bg-[#CF4B5A] hover:border-none">
+        <button className="btn btn-outline border-white text-white  hover:bg-[#CF4B5A] hover:border-none transition-all duration-300">
           Explore More
         </button>
       </div>

@@ -51,21 +51,21 @@ const PhotoGallery = () => {
   ];
 
   return (
-    <div className="container mx-auto p-4 flex flex-wrap">
-      {images.map((image) => (
-        <div key={image.id} className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-2">
-          <div className="relative" style={{ height: image.height }}>
-            <img
-              src={image.src}
-              alt={image.alt}
-              className="object-contain mx-auto h-full"
-            />
-            <div className="absolute bottom-0 left-0 right-0 p-2 bg-gray-800 bg-opacity-50">
-              <p className="text-white text-sm">{image.alt}</p>
+    <div className="my-16">
+      <h1 className="my-title">Photo Gallery</h1>
+      <div className="container mx-auto p-4 flex flex-wrap">
+        {images.map((image) => (
+          <div key={image.id} className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-2">
+            <div className="relative" style={{ height: image.height }}>
+              <img
+                src={image.src}
+                alt={image.alt}
+                className="object-contain mx-auto h-full"
+              />
             </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };

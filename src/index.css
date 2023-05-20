@@ -11,3 +11,7 @@
 .active {
   @apply text-[#CF4B5A];
 }
+
+.my-title {
+  @apply text-4xl font-bold  mb-8 text-center text-transparent bg-gradient-to-r bg-clip-text from-red-500 to-[#CF4B5A];
+}

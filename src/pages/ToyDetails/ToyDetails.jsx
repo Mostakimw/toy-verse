@@ -21,7 +21,7 @@ const ToyDetails = () => {
   useTitle(toyName);
   return (
     <div className="mt-10">
-      <h1 className="text-4xl text-center font-medium">{toyName} details</h1>
+      <h1 className="my-title">{toyName} Details</h1>
       <div className="grid grid-cols-12 mx-auto p-8 bg-white rounded-lg shadow-lg">
         <div className="col-span-4">
           <img
