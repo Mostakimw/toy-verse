@@ -8,7 +8,7 @@ const Banner = () => {
           alt="Banner"
         />
         <div
-          className="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center space-y-6"
+          className="absolute top-0 left-0 w-full h-full flex flex-col  justify-center items-center space-y-6"
           style={{ backgroundColor: "rgba(0, 0, 0, 0.6)" }}
         >
           <h1 className="text-6xl font-bold text-center text-white ">

@@ -4,7 +4,7 @@ const Blogs = () => {
   return (
     <div>
       {/* The button to open modal */}
-      <div className="flex flex-col gap-8 justify-center items-center min-h-[calc(100vh-288px)]">
+      <div className="flex flex-col gap-8 justify-center items-center min-h-[calc(100vh-288px)] px-3">
         <label htmlFor="q-1" className="blog-btn">
           What is an access token and refresh token? How do they work and where
           should we store them on the client-side?

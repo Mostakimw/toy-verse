@@ -17,7 +17,7 @@ const ToyCard = ({ toy }) => {
       <div className="p-4 h-auto space-y-4 ">
         <h3 className="text-gray-800 font-semibold text-2xl h-16">{toyName}</h3>
         <div className="mt-2 flex items-center justify-around flex-grow-0 flex-shrink-0">
-          <p className="text-gray-600">Price: {price}</p>
+          <p className="text-gray-600">Price: ${price}</p>
           <p className="text-gray-600 ml-1 justify-end">
             Rating:{" "}
             <Rating
