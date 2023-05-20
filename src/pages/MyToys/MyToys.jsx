@@ -2,34 +2,31 @@ import React, { useContext, useEffect, useState } from "react";
 import { FaEdit, FaRegStar, FaStar, FaTrashAlt } from "react-icons/fa";
 import EditToy from "../EditToy/EditToy";
 import Rating from "react-rating";
-import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import useTitle from "../../hooks/useTitle";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { Link } from "react-router-dom";
 
 const MyToys = () => {
   const { user } = useContext(AuthContext);
   const [myToys, setMyToys] = useState([]);
+  // const [sort, setSort] = useState("");
+
   // const { _id, toyName, toyImg, subCategory, sellerName, rating, price } = myToys || {};
   //   console.log(myToys);
+
   useEffect(() => {
-    fetch("http://localhost:5000/toys")
+    fetch(`http://localhost:5000/mytoys/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
-        setMyToys(data);
         console.log(data);
+        setMyToys(data);
       });
-  }, []);
-
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
+  }, [user]);
+  // const handleSortChange = (event) => {
+  //   const selectedSort = event.target.value;
+  //   setSort(selectedSort);
+  // };
 
   const handleDeleteToy = (id) => {
     Swal.fire({
@@ -58,6 +55,7 @@ const MyToys = () => {
       }
     });
   };
+
   useTitle(`My-Toy ${user.email}`);
 
   const handleToysEdit = (data) => {
@@ -71,6 +69,18 @@ const MyToys = () => {
       <h1 className="text-4xl font-medium text-center bg-gradient-to-r from-red-500 to-[#CF4B5A] text-transparent bg-clip-text">
         My all Toys
       </h1>
+      <div>
+        <select>
+          <option value="">Sort by</option>
+          <option value="asc">Price: Low to High</option>
+          <option value="desc">Price: High to Low</option>
+        </select>
+      </div>
+      {/* <div><select onChange={handleSortChange}>
+  <option value="">Sort by</option>
+  <option value="asc">Price: Low to High</option>
+  <option value="desc">Price: High to Low</option>
+</select></div> */}
       <div className="overflow-x-auto mt-12">
         <table className="table table-compact w-full">
           <thead>
@@ -106,22 +116,14 @@ const MyToys = () => {
                 </td>
                 <td>{toy.price}</td>
                 <td>
-                  <Link to={`/updatetoy/${toy._id}`}>
+                  <Link to={`/my-toys/${toy._id}`}>
                     <button
-                      onClick={openModal}
                       title="Edit this toy"
                       className="text-xl text-[#CF4B5A]"
-                      // eslint-disable-next-line react/no-unknown-property
-                      // toy={toy}
-                      // eslint-disable-next-line react/no-unknown-property
-                      // handleToysEdit={handleToysEdit}
                     >
                       <FaEdit />
                     </button>
                   </Link>
-
-                  {/* Render the modal component */}
-                  {isModalOpen && <EditToy closeModal={closeModal} />}
                 </td>
                 <td>
                   <button

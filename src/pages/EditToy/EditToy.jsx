@@ -1,21 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 // eslint-disable-next-line react/prop-types
-const EditToy = ({ closeModal }) => {
+const EditToy = () => {
+  const toyData = useLoaderData();
+  console.log(toyData);
+  const {
+    _id,
+    toyName,
+    toyImg,
+    subCategory,
+    sellerName,
+    sellerEmail,
+    rating,
+    price,
+    description,
+    availableQuantity,
+  } = toyData;
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
     const toyName = form.toyName.value;
     const toyImg = form.toyImg.value;
-    const sellerName = form.sellerName.value;
-    const sellerEmail = form.sellerEmail.value;
-    const price = `$${form.price.value}`;
+    const price = `${form.price.value}`;
     const rating = form.rating.value;
     const availableQuantity = form.availableQuantity.value;
-    const subCategory = form.subCategory.value;
     const description = form.description.value;
 
     const toys = {
+      _id,
       toyName,
       toyImg,
       sellerName,
@@ -27,149 +42,132 @@ const EditToy = ({ closeModal }) => {
       description,
     };
     console.log(toys);
+
+    fetch(`http://localhost:5000/toys/${_id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(toys),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount > 0) {
+          Swal.fire({
+            title: "Toy Updated Successfully",
+            showClass: {
+              popup: "animate__animated animate__fadeInDown",
+            },
+            hideClass: {
+              popup: "animate__animated animate__fadeOutUp",
+            },
+          });
+        }
+        console.log(data);
+      });
   };
 
-  //   console.log(handleToysEdit);
   return (
-    <div className={`modal ${open ? "modal-open" : ""}`}>
-      <div className="modal-box w-11/12 max-w-5xl">
-        <form className="max-w-7xl mx-auto mt-2">
-          <div className="form-control grid grid-cols-2 gap-8">
-            <div>
-              <label className="input-group">
-                <span className="flex flex-shrink-0 text-sm font-medium text-gray-700">
-                  Toy Name
-                </span>
-                <input
-                  name="toyName"
-                  type="text"
-                  placeholder="Toy Name"
-                  className="input input-bordered w-full"
-                />
-              </label>
-            </div>
-            <div>
-              <label className="input-group">
-                <span className="flex flex-shrink-0 text-sm font-medium text-gray-700">
-                  Toy Picture
-                </span>
-                <input
-                  name="toyImg"
-                  type="text"
-                  placeholder="picture url"
-                  className="input input-bordered w-full"
-                />
-              </label>
-            </div>
-            <div>
-              <label className="input-group">
-                <span className="flex flex-shrink-0 text-sm font-medium text-gray-700">
-                  Seller Name
-                </span>
-                <input
-                  name="sellerName"
-                  type="text"
-                  placeholder="Seller Name"
-                  className="input input-bordered w-full"
-                />
-              </label>
-            </div>
-            <div>
-              <label className="input-group">
-                <span className="flex flex-shrink-0 text-sm font-medium text-gray-700">
-                  Seller Email
-                </span>
-                <input
-                  name="sellerEmail"
-                  type="text"
-                  placeholder="Seller Email"
-                  className="input input-bordered w-full"
-                />
-              </label>
-            </div>
-
-            <div>
-              <label className="input-group">
-                <span className="flex flex-shrink-0 text-sm font-medium text-gray-700">
-                  Price
-                </span>
-                <input
-                  name="price"
-                  type="text"
-                  placeholder="Price"
-                  className="input input-bordered w-full"
-                />
-              </label>
-            </div>
-            <div>
-              <label className="input-group">
-                <span className="flex flex-shrink-0 text-sm font-medium text-gray-700">
-                  Rating
-                </span>
-                <input
-                  name="rating"
-                  type="text"
-                  placeholder="Rating"
-                  className="input input-bordered w-full"
-                />
-              </label>
-            </div>
-            <div>
-              <label className="input-group">
-                <span className="flex flex-shrink-0 text-sm font-medium text-gray-700">
-                  Available Quantity
-                </span>
-                <input
-                  name="availableQuantity"
-                  type="text"
-                  placeholder="Available quantity"
-                  className="input input-bordered w-full"
-                />
-              </label>
-            </div>
-            <div>
-              <label className="input-group"></label>
-              <select
-                name="subCategory"
-                required
-                className="input input-bordered w-full py-2 px-4 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none sm:text-sm"
-              >
-                <option value="" className="text-sm font-medium text-gray-700">
-                  Select sub-category
-                </option>
-                <option value="action-figures">Action Figures</option>
-                <option value="board-games">Board Games</option>
-                <option value="dolls">Dolls</option>
-                {/* Add more sub-categories here */}
-              </select>
-            </div>
-            <div>
-              <label>
-                <span className="flex flex-shrink-0 mb-2 text-sm font-medium text-gray-700">
-                  Description
-                </span>
-                <textarea
-                  name="description"
-                  className="textarea w-full border border-gray-300"
-                  placeholder="Write detail description for this toy"
-                ></textarea>
-              </label>
-            </div>
+    <div>
+      <h1 className="text-4xl font-medium my-8 text-center bg-gradient-to-r from-red-500 to-[#CF4B5A] text-transparent bg-clip-text">
+        My all Toys
+      </h1>
+      <form onSubmit={handleSubmit} className="max-w-7xl mx-auto mt-2">
+        <div className="form-control grid lg:grid-cols-2 gap-8">
+          <div>
+            <label className="input-group">
+              <span className="flex flex-shrink-0 text-sm font-medium text-gray-700">
+                Toy Name
+              </span>
+              <input
+                name="toyName"
+                type="text"
+                placeholder="Toy Name"
+                className="input input-bordered w-full"
+                defaultValue={toyName}
+              />
+            </label>
           </div>
-          <label className="flex justify-center">
-            <input
-              type="submit"
-              value="Update Toy"
-              className="my-btn mt-8 hover:cursor-pointer"
-            />
-          </label>
-        </form>
-        <div className="modal-action">
-          <button onClick={closeModal} className="btn">
-            Close
-          </button>
+          <div>
+            <label className="input-group">
+              <span className="flex flex-shrink-0 text-sm font-medium text-gray-700">
+                Toy Picture
+              </span>
+              <input
+                name="toyImg"
+                type="text"
+                placeholder="picture url"
+                className="input input-bordered w-full"
+                defaultValue={toyImg}
+              />
+            </label>
+          </div>
+
+          <div>
+            <label className="input-group">
+              <span className="flex flex-shrink-0 text-sm font-medium text-gray-700">
+                Price
+              </span>
+              <input
+                name="price"
+                type="text"
+                placeholder="Price"
+                className="input input-bordered w-full"
+                defaultValue={price}
+              />
+            </label>
+          </div>
+          <div>
+            <label className="input-group">
+              <span className="flex flex-shrink-0 text-sm font-medium text-gray-700">
+                Rating
+              </span>
+              <input
+                name="rating"
+                type="text"
+                placeholder="Rating"
+                className="input input-bordered w-full"
+                defaultValue={rating}
+              />
+            </label>
+          </div>
+          <div>
+            <label className="input-group">
+              <span className="flex flex-shrink-0 text-sm font-medium text-gray-700">
+                Available Quantity
+              </span>
+              <input
+                name="availableQuantity"
+                type="text"
+                placeholder="Available quantity"
+                className="input input-bordered w-full"
+                defaultValue={availableQuantity}
+              />
+            </label>
+          </div>
+
+          <div className="col-span-2">
+            <label>
+              <span className="flex flex-shrink-0 text-sm font-medium text-gray-700">
+                Description
+              </span>
+              <textarea
+                name="description"
+                className="textarea w-full border border-gray-300"
+                placeholder="Write detail description for this toy"
+                defaultValue={description}
+              ></textarea>
+            </label>
+          </div>
         </div>
-      </div>
+        <label className="flex justify-center">
+          <input
+            type="submit"
+            value="Update Toy"
+            className="my-btn mt-8 hover:cursor-pointer"
+          />
+        </label>
+      </form>
     </div>
   );
 };

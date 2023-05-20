@@ -40,15 +40,17 @@ const AddToy = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        Swal.fire({
-          title: "Your Toy Added Successfully_Yoo",
-          showClass: {
-            popup: "animate__animated animate__fadeInDown",
-          },
-          hideClass: {
-            popup: "animate__animated animate__fadeOutUp",
-          },
-        });
+        if (data.insertedId) {
+          Swal.fire({
+            title: "Your Toy Added Successfully_Yoo",
+            showClass: {
+              popup: "animate__animated animate__fadeInDown",
+            },
+            hideClass: {
+              popup: "animate__animated animate__fadeOutUp",
+            },
+          });
+        }
         console.log(data);
       });
   };
