@@ -7,10 +7,10 @@ const Footer = () => {
         <a className="link link-hover">About us</a>
         <a className="link link-hover">Contact</a>
         <Link to="/all-toys">
-          <a className="link link-hover">All Toys</a>
+          <button className="link link-hover">All Toys</button>
         </Link>
         <Link to="/register">
-          <a className="link link-hover">Join Us</a>
+          <button className="link link-hover">Join Us</button>
         </Link>
       </div>
       <div>

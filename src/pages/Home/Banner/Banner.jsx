@@ -7,10 +7,10 @@ const Banner = () => {
         alt="Banner"
       />
       <div className="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center space-y-6">
-        <h1 className="text-4xl text-white font-bold">
+        <h1 className="text-4xl text-white font-bold text-center">
           Toy Verse - Where Fun Begins!
         </h1>
-        <p className="text-xl text-white w-1/3 mx-auto text-center">
+        <p className="text-xl text-white lg:w-1/3 px-3 mx-auto text-center">
           Welcome to Toy Verse, your one-stop destination for a world of fun!
           Explore our extensive collection of toys designed to inspire laughter,
           curiosity, and endless play.{" "}

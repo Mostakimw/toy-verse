@@ -12,13 +12,13 @@ const Contact = () => {
       <h1 className="text-3xl font-bold text-center text-gray-800">
         Contact Us
       </h1>
-      <div className="flex justify-around max-w-7xl mx-auto mt-10">
+      <div className="lg:flex justify-around max-w-7xl mx-auto mt-10 space-y-10">
         <div className=" space-y-3">
           <div className="flex justify-center mb-8">
             <FaPhone className="text-6xl text-[#CF4B5A] " />
           </div>
           <h3 className="font-medium text-2xl mb-6 text-center">By Phone</h3>
-          <div className="flex justify-between gap-4">
+          <div className="flex justify-between gap-4 px-5 mt-2">
             <div>
               <p className="font-medium text-gray-700 bg-gray-50 inline-block rounded-lg">
                 Bangladesh

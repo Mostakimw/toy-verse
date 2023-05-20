@@ -37,11 +37,9 @@ const Login = () => {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="max-w-7xl mx-auto">
-        <div className="flex shadow-md">
-          <div className="w-1/2 flex flex-col justify-center bg-base-100  rounded px-8 pt-6 pb-8">
-            <h2 className="text-3xl font-semibold text-center text-gray-800 mb-6">
-              Please Login
-            </h2>
+        <div className="lg:flex shadow-md">
+          <div className="lg:w-1/2 flex flex-col justify-center bg-base-100  rounded px-8 pt-6 pb-8">
+            <h2 className="my-title">Please Login</h2>
             <form onSubmit={handleLogin}>
               <div className="pt-5">
                 {user && <p className="text-error mb-2">{error}</p>}
@@ -94,18 +92,21 @@ const Login = () => {
                   ToyVerse
                 </Link>
                 ? Please{" "}
-                <Link to="/register" className="link">
+                <Link to="/register" className="link text-[#CF4B5A]">
                   Register
                 </Link>
               </p>
             </div>
             <div className="flex justify-center mt-5">
-              <button onClick={googleLogin} className="w-2/3 btn btn-outline">
-                <FaGoogle className="text-[#CF4B5A] mr-2" /> Sign in with Google
+              <button onClick={googleLogin} className="w-2/3 btn btn-outline ">
+                <span className="flex items-center">
+                  <FaGoogle className="text-[#CF4B5A] mr-2 " />
+                  Sign in with Google
+                </span>
               </button>
             </div>
           </div>
-          <div className="w-1/2">
+          <div className="lg:w-1/2">
             <img
               className="object-cover h-full w-full"
               src="https://img.freepik.com/free-vector/cute-panda-sipping-boba-milk-tea-cartoon-icon-illustration-animal-food-icon-concept-isolated-flat-cartoon-style_138676-2173.jpg?w=740&t=st=1684367508~exp=1684368108~hmac=76921a051c70d6bbb8d0098e573b02928bd97410572fc150a58f398660652fd0"

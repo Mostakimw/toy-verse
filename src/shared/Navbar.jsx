@@ -73,13 +73,17 @@ const Navbar = () => {
                 </NavLink>
                 <NavLink
                   to="/add-toy"
-                  className={`my-nav-btn ${isActive ? "active" : "default"}`}
+                  className={`my-nav-btn ${isActive ? "active" : "default"} ${
+                    !user ? "hidden" : "default"
+                  }`}
                 >
                   Add Toy
                 </NavLink>
                 <NavLink
                   to="/my-toys"
-                  className={`my-nav-btn ${isActive ? "active" : "default"}`}
+                  className={`my-nav-btn ${isActive ? "active" : "default"} ${
+                    !user ? "hidden" : "default"
+                  }`}
                 >
                   My Toys
                 </NavLink>
@@ -112,12 +116,8 @@ const Navbar = () => {
                     </label>
                     <ul
                       tabIndex={0}
-                      className="menu dropdown-content p-2 shadow bg-base-100 rounded-box text-gray-800 w-52 mt-4"
+                      className="menu dropdown-content p-2 shadow bg-base-100 rounded-box text-gray-800 w-40 mt-4"
                     >
-                      <li>
-                        <a>Add Toys</a>
-                      </li>
-                      <hr />
                       <li>
                         <button onClick={signoutUser}>
                           Sign Out <FaSignOutAlt />
@@ -161,17 +161,46 @@ const Navbar = () => {
             </NavLink>
             <NavLink
               to="/add-toy"
-              className={`my-nav-btn ${isActive ? "active" : "default"}`}
+              className={`my-nav-btn ${isActive ? "active" : "default"}${
+                !user ? "hidden" : "default"
+              }`}
             >
               Add Toy
             </NavLink>
             <NavLink
               to="/my-toys"
-              className={`my-nav-btn ${isActive ? "active" : "default"}`}
+              className={`my-nav-btn ${isActive ? "active" : "default"}${
+                !user ? "hidden" : "default"
+              }`}
             >
               My Toys
             </NavLink>
           </div>
+          {user ? (
+            <div className="dropdown dropdown-end py-2 flex justify-center">
+              <label
+                tabIndex={0}
+                className="text-gray-800 bg-gray-100 border border-[#CF4B5A] px-3 py-2 hover:cursor-pointer hover:border-2 rounded-full transition-all duration-300"
+              >
+                {user.displayName}{" "}
+                <FaArrowCircleDown className="inline-block" />
+              </label>
+              <ul
+                tabIndex={0}
+                className="menu dropdown-content p-2 shadow bg-base-100 rounded-box text-gray-800 w-40 mt-4"
+              >
+                <li>
+                  <button onClick={signoutUser}>
+                    Sign Out <FaSignOutAlt />
+                  </button>
+                </li>
+              </ul>
+            </div>
+          ) : (
+            <Link to="/login" className="flex py-3 justify-center">
+              <button className="my-btn">Login</button>
+            </Link>
+          )}
         </div>
       )}
     </nav>

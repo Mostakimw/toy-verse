@@ -21,9 +21,9 @@ const Register = () => {
     registerUser(email, password)
       .then((result) => {
         const loggedUser = result.user;
+        updateUserProfile(result.user, name, photoUrl);
         setUser(loggedUser);
         setSuccess("Registration Successful");
-        updateUserProfile(result.user, name, photoUrl);
       })
       .catch((error) => {
         setError("Something went wrong");
@@ -44,11 +44,9 @@ const Register = () => {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="max-w-7xl mx-auto">
-        <div className="flex shadow-md">
-          <div className="w-1/2 flex flex-col justify-center bg-base-100  rounded px-8 pt-6 pb-8 ">
-            <h2 className="text-3xl font-semibold text-center text-gray-800 mb-6">
-              Register Now
-            </h2>
+        <div className="lg:flex shadow-md">
+          <div className="lg:w-1/2 flex flex-col justify-center bg-base-100  rounded px-8 pt-6 pb-8 ">
+            <h2 className="my-title">Register Now</h2>
             <form onSubmit={handleRegister}>
               <div className="pt-5">
                 {user ? (
@@ -127,13 +125,13 @@ const Register = () => {
                   ToyVerse
                 </Link>
                 ? Please{" "}
-                <Link to="/login" className="link">
+                <Link to="/login" className="link text-[#CF4B5A]">
                   Login
                 </Link>
               </p>
             </div>
           </div>
-          <div className="w-1/2">
+          <div className="lg:w-1/2">
             <img
               className="object-cover h-full w-full"
               src="https://img.freepik.com/free-vector/cute-panda-sipping-boba-milk-tea-cartoon-icon-illustration-animal-food-icon-concept-isolated-flat-cartoon-style_138676-2173.jpg?w=740&t=st=1684367508~exp=1684368108~hmac=76921a051c70d6bbb8d0098e573b02928bd97410572fc150a58f398660652fd0"
