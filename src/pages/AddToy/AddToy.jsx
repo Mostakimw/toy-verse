@@ -51,7 +51,7 @@ const AddToy = () => {
             },
           });
         }
-        console.log(data);
+        form.reset();
       });
   };
   useTitle(`Add-Toy ${user.email}`);

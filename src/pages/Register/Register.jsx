@@ -18,6 +18,12 @@ const Register = () => {
   const handleRegister = (e) => {
     e.preventDefault();
 
+    // password validation check
+    if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(password)) {
+      setError("password should be 8 char with uppercase");
+      return;
+    }
+
     registerUser(email, password)
       .then((result) => {
         const loggedUser = result.user;

@@ -6,7 +6,7 @@ import useTitle from "../../hooks/useTitle";
 const AllToys = () => {
   const allToys = useLoaderData() || [];
   useTitle("All-Toys");
-  const [toys, setToys] = useState(allToys.slice(0, 20));
+  const [toys, setToys] = useState(allToys);
   const [searchText, setSearchText] = useState("");
   const handlerSearch = () => {
     fetch(`http://localhost:5000/toys/toys-name/${searchText}`)
@@ -49,6 +49,7 @@ const AllToys = () => {
         <table className="table table-compact w-full">
           <thead>
             <tr>
+              <th>#</th>
               <th>Image</th>
               <th>Name</th>
               <th>Seller Name</th>
@@ -58,9 +59,10 @@ const AllToys = () => {
               <th>Action</th>
             </tr>
           </thead>
-          {toys.map((toy) => (
+          {toys.map((toy, index) => (
             <tbody key={toy._id}>
               <tr>
+                <td>{index}</td>
                 <td>
                   <img src={toy.toyImg} alt="" className="w-60 h-60" />
                 </td>
