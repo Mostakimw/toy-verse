@@ -1,23 +1,28 @@
 const Banner = () => {
   return (
-    <div className="relative h-screen bg-gradient-to-r from-cyan-500 to-blue-500">
-      <img
-        className="object-cover h-full w-full opacity-70"
-        src="https://img.freepik.com/free-photo/top-view-basketballs-with-football_23-2148796920.jpg?w=1380&t=st=1684578923~exp=1684579523~hmac=c9153a21e3bbab2a66d1c947b05e819ba86c05a19d356b27d433f04f123817ed"
-        alt="Banner"
-      />
-      <div className="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center space-y-6">
-        <h1 className="text-4xl text-white font-bold text-center">
-          Toy Verse - Where Fun Begins!
-        </h1>
-        <p className="text-xl text-white lg:w-1/3 px-3 mx-auto text-center">
-          Welcome to Toy Verse, your one-stop destination for a world of fun!
-          Explore our extensive collection of toys designed to inspire laughter,
-          curiosity, and endless play.{" "}
-        </p>
-        <button className="btn btn-outline border-white text-white  hover:bg-[#CF4B5A] hover:border-none transition-all duration-300">
-          Explore More
-        </button>
+    <div className="relative h-screen bg-gradient-to-r ">
+      <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
+        <img
+          className="object-cover h-full w-full opacity-70"
+          src="https://img.freepik.com/free-vector/happy-children-playing-different-sports_1308-128112.jpg?w=1480&t=st=1684612596~exp=1684613196~hmac=da4ac8914d8c1364a339f7d19f1c72e2781494417b32eecac6ef0d44a1afd21f"
+          alt="Banner"
+        />
+        <div
+          className="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center space-y-6"
+          style={{ backgroundColor: "rgba(0, 0, 0, 0.6)" }}
+        >
+          <h1 className="text-4xl font-bold text-center text-white">
+            Toy Verse - Where Fun Begins!
+          </h1>
+          <p className="text-xl text-white lg:w-1/3 px-3 mx-auto text-center">
+            Welcome to Toy Verse, your one-stop destination for a world of fun!
+            Explore our extensive collection of toys designed to inspire
+            laughter, curiosity, and endless play.
+          </p>
+          <button className="btn btn-outline border-white text-white hover:bg-[#CF4B5A] hover:border-none transition-all duration-300">
+            Explore More
+          </button>
+        </div>
       </div>
     </div>
   );
