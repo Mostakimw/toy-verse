@@ -52,7 +52,7 @@ const Navbar = () => {
               </Link>
             </div>
             <div className="hidden sm:block sm:ml-6">
-              <div className="flex space-x-4">
+              <div className="flex mt-3 space-x-4">
                 <NavLink
                   to="/"
                   className={`my-nav-btn ${isActive ? "active" : "default"}`}

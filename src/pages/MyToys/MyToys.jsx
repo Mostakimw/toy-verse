@@ -55,7 +55,7 @@ const MyToys = () => {
     });
   };
 
-  useTitle(`My-Toy - ${user.email}`);
+  useTitle(`My-Toy - ${user?.email}`);
 
   return (
     <div className="max-w-[90%] mx-auto mt-8">

@@ -21,7 +21,6 @@ const Category = () => {
 
   const handlerByCategory = (tabName) => {
     setActiveTab(tabName);
-    console.log(tabName, "clicked");
   };
   return (
     <div className="w-[90%] mx-auto text-center mt-12">
